@@ -1,4 +1,4 @@
-namespace airlinesSys.Models
+namespace webprojectplanebooking.Models
 {
     public class ErrorViewModel
     {
