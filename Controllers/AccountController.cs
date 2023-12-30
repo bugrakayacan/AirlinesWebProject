@@ -56,7 +56,7 @@ namespace webprojectplanebooking.Controllers
                         CookieAuthenticationDefaults.AuthenticationScheme);
                     ClaimsPrincipal principal = new ClaimsPrincipal(idendity);
                     HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Info", "Home");
                 }
                 else
                 {
