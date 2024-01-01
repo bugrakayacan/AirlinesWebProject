@@ -1,16 +1,35 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AirlinesReservationWebProject2.Entities;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AirlinesReservationWebProject2.Controllers
 {
+    [Authorize]
     public class ReservationController : Controller
     {
-        public IActionResult Flight()
+
+        private readonly DatabaseContext _databaseContext;
+        private readonly IConfiguration _configuration;
+
+        public ReservationController(DatabaseContext databaseContext, IConfiguration configuration)
         {
-            return View();
+            _databaseContext = databaseContext;
+            _configuration = configuration;
         }
-        public IActionResult MyFlight()
+        public async Task<IActionResult> Flight()
         {
-            return View();
+
+            return _databaseContext.Flights != null ?
+                            View(await _databaseContext.Flights.ToListAsync()) :
+                            Problem("Entity set 'DatabaseContext.Flights'  is null.");
+            
+        }
+        public async Task<IActionResult> MyFlight()
+        {
+            return _databaseContext.Flights != null ?
+                View(await _databaseContext.Flights.ToListAsync()) :
+                Problem("Entity set 'DatabaseContext.Flights'  is null.");
         }
     }
 }

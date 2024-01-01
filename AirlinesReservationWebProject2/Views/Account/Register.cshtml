@@ -13,8 +13,8 @@
         <div asp-validation-summary="ModelOnly" class="text-danger small"></div>
         <form method="post">
             <div class="form-group mb-3">
-                <label asp-for="Username" class="form-label">Username</label>
-                <input asp-for="Username" class="form-control" placeholder="johndoe" />
+                <label asp-for="Username" class="form-label">Kullanıcı Ad</label>
+                <input asp-for="Username" class="form-control" placeholder="Kullanıcı Adı" />
                 <span asp-validation-for="Username" class="text-danger small"></span>
 
             </div>
@@ -26,14 +26,14 @@
             </div>
 
             <div class="form-group mb-3">
-                <label asp-for="Password" class="form-label">Password</label>
-                <input asp-for="Password" type="password" class="form-control" placeholder="P@ssW0rd!" />
+                <label asp-for="Password" class="form-label">Parola</label>
+                <input asp-for="Password" type="password" class="form-control" placeholder="Parola"/>
                 <span asp-validation-for="Password" class="text-danger small"></span>
 
             </div>
             <div class="form-group mb-3">
-                <label asp-for="RePassword" class="form-label">Re-Password</label>
-                <input asp-for="RePassword" type="password" class="form-control" placeholder="P@ssW0rd!" />
+                <label asp-for="RePassword" class="form-label">Parola tekrar</label>
+                <input asp-for="RePassword" type="password" class="form-control" placeholder="Parola" />
                 <span asp-validation-for="RePassword" class="text-danger small"></span>
 
             </div>
