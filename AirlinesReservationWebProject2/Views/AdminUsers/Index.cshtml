@@ -1,0 +1,62 @@
+﻿@model IEnumerable<AirlinesReservationWebProject2.Entities.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Kullanıcı Yönetimi</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Yeni Kullanıcı Oluştur</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td></td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-secondary">Düzenle</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Detay</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Sil</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
